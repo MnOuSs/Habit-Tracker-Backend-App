@@ -79,6 +79,8 @@ python cli.py
 
 You can check if the predefined habits are properly loaded into the database by choosing command number `5` from Habit Tracker App:
 
+Note down that every time your run `predefined_habits_sideloader.py`, new completion dates are generated that allow new streaks to be be calculated. So have fun playing with that as well, testing the Habit Tracker App analytical functions.
+
 ![List of Side-loaded Habits](images/list_habits.png)
 
 ## Quality Assurance
