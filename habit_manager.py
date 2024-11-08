@@ -87,7 +87,7 @@ class HabitManager:
         Returns:
             bool: True if the habit was found and updated, False otherwise.
         """
-        habit = self.get_habit(name)
+        habit = self.get_habit(name.lower())
         if not habit:
             print("Habit does not exist.")
             return False
@@ -98,6 +98,7 @@ class HabitManager:
             habit.description = new_description
         if new_periodicity:
             habit.periodicity = new_periodicity
+
         self.storage.save_habit(habit)
         return True
 
@@ -141,9 +142,10 @@ class HabitManager:
             bool: True if the habit was found and deleted, False otherwise.
         """
         for habit in self.habits:
-            if habit.name == name.lower():
+            if habit.name.lower() == name.lower():
                 self.habits.remove(habit)
-                return True
+                self.storage.delete_habit(habit.name)
+            return True
         return False
 
     def get_habits(self):
